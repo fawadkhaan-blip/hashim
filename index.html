@@ -3,25 +3,507 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashim Jadoon - Advocate for Justice & Environmental Rights</title>
+    <title>Hashim Jadoon - Champion of Environmental Justice</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Georgia', serif; background-color: #f8f9fa; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x600?text=Mountains+of+Justice') center/cover; color: white; padding: 150px 0; text-align: center; }
-        .section-padding { padding: 80px 0; }
-        .achievement-card { background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 30px; margin-bottom: 30px; transition: transform 0.3s; }
-        .achievement-card:hover { transform: translateY(-5px); }
-        .contact-form { background: white; border-radius: 10px; padding: 40px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        footer { background: #343a40; color: white; padding: 20px 0; text-align: center; }
+        :root {
+            --primary-color: #1a4d2e;
+            --secondary-color: #4f772d;
+            --accent-gold: #d4af37;
+            --text-dark: #2c3e50;
+            --bg-light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 77, 46, 0.95), rgba(79, 119, 45, 0.85)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero .highlight {
+            color: var(--accent-gold);
+            font-weight: 400;
+        }
+        
+        .btn-custom {
+            background: var(--accent-gold);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-custom:hover {
+            background: #b8952e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Section Styling */
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-gold);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: white;
+        }
+        
+        .profile-img {
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: auto;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-content {
+            padding: 2rem;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-gold);
+            margin-top: 2rem;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: var(--bg-light);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .service-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* Achievements Section */
+        .achievements-section {
+            background: white;
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .achievement-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-card h5 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--secondary-color);
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* Press Section */
+        .press-section {
+            background: var(--bg-light);
+            padding: 60px 0;
+        }
+        
+        .press-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .press-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .press-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(26, 77, 46, 0.05), rgba(79, 119, 45, 0.05));
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        .form-control {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info-item i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-right: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a2e1f;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-section h5 {
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#home"><i class="fas fa-balance-scale"></i> Hashim Jadoon</a>
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-balance-scale"></i> Hashim Jadoon
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,8 +511,8 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Victories</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -40,81 +522,198 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Defending Justice, Protecting Our Earth</h1>
-            <p class="lead mb-4">The Lawyer Who Took on Mining Giants and Won</p>
-            <a href="#contact" class="btn btn-light btn-lg">Consult Now</a>
+            <div class="hero-content">
+                <h1 class="fade-in-up">Defending Justice,<br>Protecting Our <span class="highlight">Mountains</span></h1>
+                <p class="subtitle fade-in-up">The Lawyer Who Took On Mining Giants and Won</p>
+                <a href="#contact" class="btn btn-custom fade-in-up">Schedule Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">900+</div>
+                        <div class="stat-label">Illegal Plants Challenged</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Supreme Court Victories</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Lives Impacted</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Commitment to Justice</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding bg-white">
+    <section id="about" class="about-section section-padding">
         <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">About Hashim Jadoon</h2>
+                <p class="section-subtitle">A voice for the voiceless, a defender of our environment</p>
+            </div>
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/500x400?text=Hashim+Jadoon" alt="Hashim Jadoon" class="img-fluid rounded">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="https://i.postimg.cc/PJ7YJ7Ky/hashim.jpg" alt="Hashim Jadoon" class="profile-img">
                 </div>
-                <div class="col-lg-6">
-                    <h2 class="mb-4">About Hashim Jadoon</h2>
-                    <p>A dedicated advocate born and raised in the serene village of Ghumawan, Hashim Jadoon returned home after graduating from the prestigious University of London in 2022. With a High Court licence and experience in Islamabad's legal circuit, Hashim has emerged as a fierce defender of environmental rights and community justice.</p>
-                    <p>At just under 30, he has already transformed his village by challenging powerful interests, proving that one lawyer's resolve can crush injustice.</p>
-                    <blockquote class="blockquote mt-4">
-                        <p>"I represent one village, one municipality. What of the others? The law should be the deterrent, not me."</p>
-                        <footer class="blockquote-footer">Hashim Jadoon</footer>
-                    </blockquote>
+                <div class="col-lg-7">
+                    <div class="about-content">
+                        <p>Born and raised in the serene village of Ghumawan in Haripur District, Hashim Jadoon represents a new generation of Pakistani lawyers who understand that true justice extends beyond courtrooms—it encompasses our duty to protect the environment for future generations.</p>
+                        
+                        <p>After earning his law degree from the prestigious <strong>University of London in 2022</strong> and obtaining his High Court licence, Hashim returned home with a mission. While many lawyers seek the prestige of corporate firms, Hashim chose to defend his community against powerful mining interests that were systematically destroying the mountains he grew up beneath.</p>
+                        
+                        <p>At just under 30 years old, he has achieved what many consider impossible: single-handedly taking on over 900 illegal crush plants across Khyber Pakhtunkhwa, securing landmark judgments from the Supreme Court of Pakistan, and sparking a nationwide movement for environmental justice.</p>
+                        
+                        <div class="quote-box">
+                            <p class="quote-text">"I represent one village, one municipality. What of the others? The law should be the deterrent, not me."</p>
+                            <p class="mb-0"><strong>— Hashim Jadoon</strong></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding" style="background-color: #e9ecef;">
+    <section id="services" class="services-section section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">Areas of Expertise</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <i class="fas fa-leaf fa-3x text-success mb-3"></i>
-                    <h4>Environmental Law</h4>
-                    <p>Specializing in cases involving illegal mining, land degradation, and protection under the Khyber Pakhtunkhwa Environmental Protection Act.</p>
+            <div class="text-center mb-5">
+                <h2 class="section-title">Areas of Expertise</h2>
+                <p class="section-subtitle">Specialized legal services for environmental and community protection</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Environmental Law</h4>
+                        <p>Expert representation in cases involving illegal mining, land degradation, and environmental protection under the Khyber Pakhtunkhwa Environmental Protection Act and federal legislation.</p>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <i class="fas fa-gavel fa-3x text-primary mb-3"></i>
-                    <h4>Community Rights</h4>
-                    <p>Advocating for local communities against unlawful taxes, unapproved developments, and corporate overreach.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Community Rights</h4>
+                        <p>Defending local communities against unlawful taxation, unapproved industrial developments, and corporate overreach that threatens traditional livelihoods.</p>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <i class="fas fa-users fa-3x text-info mb-3"></i>
-                    <h4>Public Interest Litigation</h4>
-                    <p>Representing marginalized groups in high-stakes cases before the Peshawar High Court and Supreme Court.</p>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h4>Public Interest Litigation</h4>
+                        <p>Strategic litigation before the Peshawar High Court and Supreme Court of Pakistan representing marginalized groups in high-stakes constitutional matters.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h4>Natural Resource Protection</h4>
+                        <p>Safeguarding Pakistan's natural heritage from exploitation, ensuring sustainable development that balances economic needs with environmental preservation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4>Industrial Compliance</h4>
+                        <p>Ensuring industries operate within environmental regulations and holding corporations accountable for violations that harm communities and ecosystems.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h4>Constitutional Law</h4>
+                        <p>Advancing environmental rights as fundamental constitutional protections, establishing legal precedents for future generations of environmental advocates.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="section-padding bg-white">
+    <section id="achievements" class="achievements-section section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">Landmark Victories</h2>
+            <div class="text-center mb-5">
+                <h2 class="section-title">Landmark Victories</h2>
+                <p class="section-subtitle">Precedent-setting cases that changed environmental law in Pakistan</p>
+            </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6 mb-4">
                     <div class="achievement-card">
-                        <h5><i class="fas fa-trophy text-warning"></i> Ghumawan Crush Plants Sealed</h5>
-                        <p>Filed case in June 2022 leading to sealing in March 2023. Peshawar High Court dismissed petitions on March 11, 2025, restraining operations for lacking environmental approvals.<grok-card data-id="7e8a67" data-type="citation_card"></grok-card></p>
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h5>Ghumawan Crush Plants Sealed (2023-2025)</h5>
+                        <p>Filed groundbreaking case in June 2022 that led to the sealing of multiple illegal crush plants in Ghumawan. Despite fierce opposition from powerful mining interests, the Peshawar High Court dismissed all petitions on March 11, 2025, definitively restraining operations due to lack of environmental approvals.</p>
+                        <div class="testimonial">
+                            <p>"Hashim bhai was truly a one man army, and for that I am eternally grateful." — Adnan, Local Resident</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 mb-4">
                     <div class="achievement-card">
-                        <h5><i class="fas fa-trophy text-warning"></i> Supreme Court Ruling on Illegal Mining</h5>
-                        <p>Represented Haripur case reaching SC; July 11, 2024 ruling directed Environmental Protection Orders against over 900 illegal crush plants in Khyber Pakhtunkhwa.<grok-card data-id="635859" data-type="citation_card"></grok-card></p>
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h5>Supreme Court Ruling on Illegal Mining (2024)</h5>
+                        <p>Successfully represented the Haripur case before Pakistan's Supreme Court. The landmark judgment of July 11, 2024 directed Environmental Protection Orders against over 900 illegal crush plants across Khyber Pakhtunkhwa, setting a nationwide precedent.</p>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="achievement-card">
-                        <h5><i class="fas fa-trophy text-warning"></i> Landmark Judgment Preserving Mountains</h5>
-                        <p>May 19, 2025 judgment declared crush plants illegal, calling for mountain preservation and sparking a movement for environmental justice.<grok-card data-id="085462" data-type="citation_card"></grok-card></p>
-                        <blockquote class="blockquote mt-3">
-                            <p>“Hashim bhai was truly a one man army, and for that I am eternally grateful.”</p>
-                            <footer class="blockquote-footer">Adnan, Local Resident</footer>
-                        </blockquote>
+                        <div class="achievement-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h5>Historic Mountain Preservation Judgment (May 19, 2025)</h5>
+                        <p>Secured the most comprehensive environmental protection judgment in Pakistani history. The court declared crush plants operating without proper environmental clearances illegal and called for urgent mountain preservation measures. This ruling has sparked a nationwide movement for environmental justice and established new standards for protecting Pakistan's natural heritage.</p>
+                        <p><strong>Impact:</strong> This judgment has become a blueprint for environmental advocates across Pakistan, demonstrating that dedicated legal action can overcome even the most entrenched industrial interests when the law is properly applied.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section class="press-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">In The Press</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="press-card">
+                        <div class="press-logo">Dawn</div>
+                        <h5>"'Crushing' Injustice — The Lawyer Who Took On The Mining Giants And Won"</h5>
+                        <p class="text-muted mb-3">October 2025</p>
+                        <p>An in-depth feature chronicling Hashim Jadoon's remarkable journey from a London-educated lawyer to the singular force that challenged Pakistan's powerful mining industry and prevailed.</p>
+                        <a href="https://www.dawn.com/news/1944970" target="_blank" class="btn btn-outline-primary">Read Full Article <i class="fas fa-external-link-alt ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -122,61 +721,35 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background-color: #e9ecef;">
+    <section id="contact" class="contact-section section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">Get in Touch</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Schedule a consultation to discuss your environmental or community rights case</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-7">
                     <form class="contact-form">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="name" class="form-label">Name</label>
+                            <div class="col-md-6 mb-4">
+                                <label for="name" class="form-label">Full Name</label>
                                 <input type="text" class="form-control" id="name" required>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
+                            <div class="col-md-6 mb-4">
+                                <label for="email" class="form-label">Email Address</label>
                                 <input type="email" class="form-control" id="email" required>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        <div class="mb-4">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
-                    </form>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <p><i class="fas fa-map-marker-alt"></i> Ghumawan Village, Haripur District, Khyber Pakhtunkhwa</p>
-                <p><i class="fas fa-phone"></i> +92-XXX-XXXXXXX | <i class="fas fa-envelope"></i> info@hashimjadoonlaw.com</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Hashim Jadoon. All rights reserved. | Inspired by triumphs in environmental justice.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form submission (placeholder)
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-        });
-    </script>
-</body>
-</html>
+                        <div class="mb-4">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-control" id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="environmental">Environmental Law Case</option>
+                                <option value="community">Community Rights</option>
+                                <option value="public">Public Interest Litigation</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
